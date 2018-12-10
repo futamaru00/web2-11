@@ -12,21 +12,21 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
   <script type="text/javascript">
     var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight,0.1,1000 );
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
     
-    var renderer = new THREE.WebGLRender();
-    renderer.setSize( window.innerWidth,window.innerHeight);
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight);
     document.body.appendChild( renderer.domElement );
     
     window.addEventListener('resize',function() {
-      renderer.setSize(window.innerWidth,window.innerHeight);
+      renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
     }, false );
     
     var geometry = new THREE.BoxGeometry( 1, 1, 1 );
     var material = new THREE.MeshBasicMaterial ({color: 0xccffcc});
-    var mesh = new THREE .Mesh( geometry, material );
+    var mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
     
     camera.position.z = 5;
