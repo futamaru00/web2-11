@@ -24,8 +24,15 @@
       camera.updateProjectionMatrix();
     }, false );
     
+    var light = new THREE.DirectnalLight(0xcccccc);
+    light.position.set(0,100,30);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x666666));
+    
+    var loader = new THREE.TextureLoader();
     var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    var material = new THREE.MeshBasicMaterial ({color: 0xccffcc});
+    var material = new THREE.MeshBasicMaterial ({color: 0xccffcc,
+                                                map: loader.load('533.png')});
     var mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
     
