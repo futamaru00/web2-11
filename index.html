@@ -2,7 +2,7 @@
 <html lang = "ja">
 <head>
   <meta charset="UTF-8">
-  <title>初めてのthreee.js</title>
+  <title>初めてのthree.js</title>
     <style>
       body { margin: 0; }
       canvas { width: 100%; height: 100% }
@@ -35,7 +35,7 @@
     var render = function() {
       requestAnimationFrame( render );
       
-      var delta_time = clock.getData();
+      var delta_time = clock.getDelta();
       mesh.rotation.x += 0.1 * delta_time;
       mesh.rotation.y += 0.3 * delta_time;
       
