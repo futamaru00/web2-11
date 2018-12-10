@@ -2,7 +2,7 @@
 <html lang = "ja">
 <head>
   <meta charset="UTF-8">
-  <title>初めてのthreee.js</title>
+  <title>初めてのthree.js</title>
     <style>
       body { margin: 0; }
       canvas { width: 100%; height: 100% }
@@ -31,10 +31,31 @@
     
     var loader = new THREE.TextureLoader();
     var geometry = new THREE.SphereGeometry( 1, 32, 16 );
-    var material = new THREE.MeshBasicMaterial ({color: 0xccffcc,
-                                                map: loader.load('553.png')});
+    var material = new THREE.MeshBasicMaterial ({color: 0xccffcc, map: loader.load('553.png')});
     var mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
+    
+    var particle_geometry = new THREE.Geometry();
+    
+    var numParticles = 2000;
+    
+    for(var i = 0 ; i < numParticles ; i++) {
+      particle_geometry.vertices.push(
+        Math.random() * 20 - 10,
+        Math.random() * 20 - 10,
+        Math.random() * 20 - 10));
+    }
+    
+    var particle_material = new THREE.PointsMaterial({
+      size: 0.01,
+      color: 0x80ffccaa,
+      blending: THREE.AdditiveBlending,
+      transparent: true,
+      depthTest: true
+    });
+    
+    var emitter = new THREE.Points(particle_geometry, particle_material);
+    scene.add(emitter);
     
     camera.position.z = 5;
     
